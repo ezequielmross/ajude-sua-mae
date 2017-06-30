@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style lang="stylus">
+*
+  box-sizing border-box
 body
   margin: 0
   height: 100vh

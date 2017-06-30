@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     send () {
-      this.$emit('newquestion', this.text)
+      this.$emitAll('newquestion', this.text)
       this.text = ''
     }
   }
