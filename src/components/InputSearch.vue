@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     send () {
-      console.log(this.text)
       this.$emit('newquestion', this.text)
       this.text = ''
     }
