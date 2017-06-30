@@ -21,7 +21,4 @@ footer
   width: 100%
   background-color: #4fc08d
   color: #ffffff
-  position: absolute
-  left: 0
-  bottom: 0
 </style>

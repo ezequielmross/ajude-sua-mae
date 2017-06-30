@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main ref="main">
     <div v-for="m in messages" :key="m.from+m.text" :class="m.from + '-div'">
-      <span :class="m.from">{{m.text}}</span>
+      <div :class="m.from">{{m.text}}</div>
     </div>
   </main>
 </template>
@@ -14,7 +14,7 @@ export default {
   data () {
     return {
       messages: [
-        {from: 'watson', text: 'Olá, faça sua pergunta!'},
+        {from: 'watson', text: 'Olá, faça sua pergunta!'}
       ]
     }
   },
@@ -30,6 +30,10 @@ export default {
         .catch((error) => {
           console.log(error)
         })
+        .then(() => this.scrollToBottom())
+    },
+    scrollToBottom () {
+      this.$refs.main.scrollTop = this.$refs.main.scrollHeight
     }
   },
   created () {
@@ -43,10 +47,9 @@ export default {
 <style lang="stylus" scoped>
   main
     background url('../assets/logo.png') no-repeat center
-    min-height calc(100vh - 56px - 40px)
     margin-top 20px
-  main > div
-    margin-bottom 20px
+    overflow-y: scroll
+    flex 3
   .mom-div
     text-align right
 
@@ -55,6 +58,7 @@ export default {
     padding 8px
     border-radius 5px
     word-wrap break-word
+    display inline-block
   .mom
     background-color pink
   .watson
